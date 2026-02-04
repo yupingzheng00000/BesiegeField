@@ -59,6 +59,8 @@ In this repository, the exposed control interface is limited to discrete scripte
 
 The Unity/C# plugin source itself is not included in this repo (it is distributed separately via the Google Drive link below), so I cannot verify from this codebase whether the plugin supports continuous real-valued control or how much effort it would take to add it. If you can share the plugin source or its API spec, I can review it and estimate the modification cost.
 
+Therefore, in the current environment exposed by this repository, the number of parts that can be continuously controlled is **0** (only discrete key-based commands are supported).
+
 ---
 
 ## 🚀 Installation
