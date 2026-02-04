@@ -51,6 +51,29 @@ Paper: [Agentic Design of Compositional Machines](https://arxiv.org/abs/2510.149
 
 BesiegeField is a cutting-edge framework that enables Large Language Models (LLMs) to autonomously design and build complex machines in the Besiege physics-based game environment. This project bridges AI reasoning with creative engineering tasks.
 
+### 🔁 Control Interface Note
+
+The paper confirms that the system can send control commands during evaluation, enabling closed-loop optimization of machine structure and control. However, the paper does not fully specify the action parameterization (e.g., whether commands are continuous or per-powered-block real-valued). For exact action-space details, refer to the BesiegeField plugin code.
+
+In this repository, the exposed control interface is limited to discrete scripted commands such as `ToggleSimulate` and `SwitchKey` (see `environments/besiege_codebook.py` and `environments/besiege_interface.py`), driven by instruction lists in `environments/env_files/level_menus.json`. There is no continuous real-valued action API or per-actuator control loop implemented in the Python codebase.
+
+The Unity/C# plugin source itself is not included in this repo (it is distributed separately via the Google Drive link below), so I cannot verify from this codebase whether the plugin supports continuous real-valued control or how much effort it would take to add it. If you can share the plugin source or its API spec, I can review it and estimate the modification cost.
+
+Therefore, in the current environment exposed by this repository, the number of parts that can be continuously controlled is **0** (only discrete key-based commands are supported).
+
+If you ask "which parts are *theoretically* suited to continuous control," the block list suggests the most natural candidates are **powered or actuation-related blocks**, such as:
+- Steering Hinge (Type ID 28)
+- Steering Block (Type ID 13)
+- Rotating Block (Type ID 22)
+- Powered Wheel (Type ID 2) and Large Powered Wheel (Type ID 46)
+- Powered Medium Cog (Type ID 39)
+- Pistons (Type IDs 18, 181, 182)
+- Water Cannon (Strong) (Type ID 56)
+- Flying Block (Type ID 14)
+- Winch (Type ID 45)
+
+These parts expose motion, torque, thrust, or extension that would typically be controlled with continuous values in a simulator. The current repo does not provide a continuous action API for them.
+
 ---
 
 ## 🚀 Installation
