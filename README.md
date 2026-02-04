@@ -61,6 +61,19 @@ The Unity/C# plugin source itself is not included in this repo (it is distribute
 
 Therefore, in the current environment exposed by this repository, the number of parts that can be continuously controlled is **0** (only discrete key-based commands are supported).
 
+If you ask "which parts are *theoretically* suited to continuous control," the block list suggests the most natural candidates are **powered or actuation-related blocks**, such as:
+- Steering Hinge (Type ID 28)
+- Steering Block (Type ID 13)
+- Rotating Block (Type ID 22)
+- Powered Wheel (Type ID 2) and Large Powered Wheel (Type ID 46)
+- Powered Medium Cog (Type ID 39)
+- Pistons (Type IDs 18, 181, 182)
+- Water Cannon (Strong) (Type ID 56)
+- Flying Block (Type ID 14)
+- Winch (Type ID 45)
+
+These parts expose motion, torque, thrust, or extension that would typically be controlled with continuous values in a simulator. The current repo does not provide a continuous action API for them.
+
 ---
 
 ## 🚀 Installation
