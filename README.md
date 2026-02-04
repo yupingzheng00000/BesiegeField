@@ -57,6 +57,8 @@ The paper confirms that the system can send control commands during evaluation, 
 
 In this repository, the exposed control interface is limited to discrete scripted commands such as `ToggleSimulate` and `SwitchKey` (see `environments/besiege_codebook.py` and `environments/besiege_interface.py`), driven by instruction lists in `environments/env_files/level_menus.json`. There is no continuous real-valued action API or per-actuator control loop implemented in the Python codebase.
 
+The Unity/C# plugin source itself is not included in this repo (it is distributed separately via the Google Drive link below), so I cannot verify from this codebase whether the plugin supports continuous real-valued control or how much effort it would take to add it. If you can share the plugin source or its API spec, I can review it and estimate the modification cost.
+
 ---
 
 ## 🚀 Installation
